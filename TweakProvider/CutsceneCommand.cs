@@ -96,7 +96,7 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
             ClientLanguage.German => DeMessageP1,
             ClientLanguage.Japanese => JpMessage,
             ClientLanguage.English => EnMessageP1,
-            _ => throw new ArgumentException($"Client Language: {clientLanguage} is unsupported"),
+            _ => throw new ArgumentException($"Client Language: {clientLanguage} is unsupported", clientLanguage.ToString()),
         };
         loc2 = clientLanguage switch
         {
@@ -104,7 +104,7 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
             ClientLanguage.German => DeMessageP2,
             ClientLanguage.Japanese => string.Empty,
             ClientLanguage.English => EnMessageP2,
-            _ => throw new ArgumentException($"Client Language: {clientLanguage} is unsupported"),
+            _ => throw new ArgumentException($"Client Language: {clientLanguage} is unsupported", clientLanguage.ToString()),
         };
         Service.Framework.Update -= PopulateLoc;
     }
@@ -121,7 +121,7 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
         }
 
         if (Common.LastCommand is null ||
-            !allCommands.Exists(command => Common.LastCommand->ToString().Contains(command)))
+            !allCommands.Exists(command => Common.LastCommand->ToString().Contains(command, StringComparison.Ordinal)))
         {
             return;
         }
@@ -159,7 +159,7 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
                 error += LocMessage2;
             }
 
-            if (!configCommandOption.config || !error.Equals(message.TextValue))
+            if (!configCommandOption.config || !error.Equals(message.TextValue, StringComparison.Ordinal))
             {
                 continue;
             }
@@ -186,9 +186,11 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
         }
     }
 
+#pragma warning disable MA0051 // Method is too long
     private static string ConstructChatMessage(bool optionFlag,
         SystemConfigOption option,
         ClientLanguage clientLanguage)
+#pragma warning restore MA0051 // Method is too long
     {
         var message = string.Empty;
         switch (clientLanguage)

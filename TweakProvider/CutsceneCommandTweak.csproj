@@ -7,10 +7,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev</DalamudLibPath>
-        <SimpleTweaksPath>D:\yes\SimpleTweaksPlugin\bin\Debug</SimpleTweaksPath>
+        <SimpleTweaksPath>D:\yes\SimpleTweaksPlugin\bin\Release</SimpleTweaksPath>
         <Platforms>x64</Platforms>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Meziantou.Analyzer" Version="2.0.112">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
     <ItemGroup>
         <Reference Include="Dalamud">
             <Private>false</Private>
@@ -26,7 +33,7 @@
         </Reference>
         <Reference Include="FFXIVClientStructs">
             <Private>false</Private>
-            <HintPath>$(SimpleTweaksPath)\FFXIVClientStructs.dll</HintPath>
+            <HintPath>$(DalamudLibPath)\FFXIVClientStructs.dll</HintPath>
         </Reference>
     </ItemGroup>
 
