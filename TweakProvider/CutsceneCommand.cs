@@ -136,8 +136,7 @@ public class CutsceneCommand : KurochiTweaks.SubTweak
             (Config.Ambient, CommandLists.ambientVolumeCommands, SystemConfigOption.IsSndEnv),
             (Config.ControllerSpeaker, CommandLists.controllerSpeakerVolumeCommands, SystemConfigOption.IsSoundPad),
             (Config.Performance, CommandLists.performanceVolumeCommands, SystemConfigOption.IsSndPerform),
-            (Config.MountBackgroundMusic, CommandLists.mountBgmVolumeCommands,
-             SystemConfigOption.SoundChocobo), // MountBGM
+            (Config.MountBackgroundMusic, CommandLists.mountBgmVolumeCommands, SystemConfigOption.SoundChocobo), // MountBGM
         };
         foreach (var (config, commands, option) in configCommandArray)
         {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{150675D7-2692-4784-A669-0684B63923D7}") = "CutsceneCommandTweak", "CutsceneCommandTweak.csproj", "{FED613B8-B19A-4CDF-90E9-18C242127238}"
+Project("{150675D7-2692-4784-A669-0684B63923D7}") = "CutsceneCommandTweak", "TweakProvider\CutsceneCommandTweak.csproj", "{FED613B8-B19A-4CDF-90E9-18C242127238}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
