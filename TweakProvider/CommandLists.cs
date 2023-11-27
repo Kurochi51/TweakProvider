@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CutsceneCommandTweak.Lists;
 
 public static class CommandLists

@@ -6,7 +6,6 @@
         <Nullable>enable</Nullable>
         <AppendPlatformToOutputPath>false</AppendPlatformToOutputPath>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <ImplicitUsings>enable</ImplicitUsings>
         <SimpleTweaksPath>D:\yes\SimpleTweaksPlugin\bin\Release</SimpleTweaksPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
