@@ -2,14 +2,20 @@
 
     <PropertyGroup>
         <TargetFramework>net7.0-windows</TargetFramework>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <AppendPlatformToOutputPath>false</AppendPlatformToOutputPath>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev</DalamudLibPath>
-        <SimpleTweaksPath>D:\yes\SimpleTweaksPlugin\bin\Release</SimpleTweaksPath>
         <Platforms>x64</Platforms>
+        <Nullable>enable</Nullable>
+        <AppendPlatformToOutputPath>false</AppendPlatformToOutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <SimpleTweaksPath>D:\yes\SimpleTweaksPlugin\bin\Release</SimpleTweaksPath>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">$(HOME)/.xlcore/dalamud/Hooks/dev/</DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('OSX'))">$(HOME)/Library/Application Support/XIV on Mac/dalamud/Hooks/dev/</DalamudLibPath>
+        <DalamudLibPath Condition="$(DALAMUD_HOME) != ''">$(DALAMUD_HOME)/</DalamudLibPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,11 +27,11 @@
     <ItemGroup>
         <Reference Include="Dalamud">
             <Private>false</Private>
-            <HintPath>$(DalamudLibPath)\Dalamud.dll</HintPath>
+            <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
         </Reference>
         <Reference Include="ImGui.NET">
             <Private>false</Private>
-            <HintPath>$(DalamudLibPath)\ImGui.NET.dll</HintPath>
+            <HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
         </Reference>
         <Reference Include="SimpleTweaksPlugin">
             <Private>false</Private>
@@ -33,7 +39,7 @@
         </Reference>
         <Reference Include="FFXIVClientStructs">
             <Private>false</Private>
-            <HintPath>$(DalamudLibPath)\FFXIVClientStructs.dll</HintPath>
+            <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
         </Reference>
     </ItemGroup>
 
